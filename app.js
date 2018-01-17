@@ -4,16 +4,21 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var compression = require('compression');
 var index = require('./routes/index');
 var zauber = require('./routes/zauber');
 var rituale = require('./routes/rituale');
+var tricks= require('./routes/tricks');
+
+var zeremonien= require('./routes/zeremonien');
+var segnungen= require('./routes/segnungen');
+var litrugien= require('./routes/litrugien');
 // scrape.scrape((cb)=>{
 // console.log(cb);
 // });
 
 var app = express();
-
+app.use(compression());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -29,8 +34,12 @@ app.use('/stylesheets/w3.css', express.static(path.join(__dirname, 'node_modules
 app.use('/', index);
 
 app.use('/zauber', zauber);
+app.use('/tricks', tricks);
 
 app.use('/rituale', rituale);
+app.use('/segnungen', segnungen);
+app.use('/zeremonien', zeremonien);
+app.use('/litrugien', litrugien);
 
 
 

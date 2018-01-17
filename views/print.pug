@@ -1,10 +1,11 @@
 extends layout
 
 block content
-  h1= title
+  h2(class='w3-center')= title
   
  
   each val in data
-        span !{val} 
+    div(class='w3-half',style="width:50%; border:3px solid #ffffff;")
+      span !{val} 
 
 

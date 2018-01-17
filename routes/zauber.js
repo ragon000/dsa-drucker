@@ -3,7 +3,7 @@ var router = express.Router();
 var scraper = require('../scrape');
 
 var spruche = [];
-scraper.scrape((cb)=>{
+scraper.scrape('sprüche', (cb)=>{
 spruche=cb
 });
 /* GET home page. */
