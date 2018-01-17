@@ -4,10 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var scrape = require('./scrape');
-var index = require('./routes/index');
 
-scrape.scrape();
+var index = require('./routes/index');
+var zauber = require('./routes/zauber');
+var rituale = require('./routes/rituale');
+// scrape.scrape((cb)=>{
+// console.log(cb);
+// });
 
 var app = express();
 
@@ -22,8 +25,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/stylesheets/w3.css', express.static(path.join(__dirname, 'node_modules/w3-css/w3.css')));
 app.use('/', index);
+
+app.use('/zauber', zauber);
+
+app.use('/rituale', rituale);
+
+
+
+
+
+
 
 
 // catch 404 and forward to error handler

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  form(method='post', enctype='application/json')
+    select(name='Sprüche' size='15' multiple)
+      each val in data
+        option(value=val.title)= val.title
+    br
+    input(type='submit', value='Druckansicht')
