@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  div(class='w3-container w3-teal')
+  header(class='w3-container w3-teal')
     h2= title
   form(method='post', class='w3-container', enctype='application/json')
     - console.log(data);
@@ -15,5 +15,5 @@ block content
               option(value=val.title)= val.title
     br
     input(type='submit',class='w3-block w3-button w3-xlarge w3-green', value='Druckansicht')
-  div(class='w3-container w3-teal')
+  footer(class='w3-container w3-teal')
     h5 by ragon000
