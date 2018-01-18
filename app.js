@@ -6,13 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
 var index = require('./routes/index');
-
+var basicAuth = require('express-basic-auth');
 var app = express();
 app.use(compression());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
+app.use(basicAuth( { authorizer: myAuthorizer, challenge: true } ));
+ 
+function myAuthorizer(username, password) {
+    return true;
+}
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
