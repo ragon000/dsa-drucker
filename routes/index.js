@@ -129,12 +129,14 @@ router.post('/', function(req, res, next) {
 
 
 
-//console.log(index + ":"+array.length);
-            if (index == array.length-1) {
-                setTimeout(function(){res.render('print', {
-                    title: 'DSA PRINTER',
-                    data: toPrint
-                });}, 10);
+            //console.log(index + ":"+array.length);
+            if (index == array.length - 1) {
+                setTimeout(function() {
+                    res.render('print', {
+                        title: 'DSA PRINTER',
+                        data: toPrint
+                    });
+                }, 10);
 
             }
         });

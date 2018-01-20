@@ -90,6 +90,7 @@ exports.scrape = function(art, cb) {
                                     title: data.children().first().children().first().text(),
                                     data: data.children().first().html()
                                 });
+
                                 // console.log(art+": "+data.children().first().children().first().text());
                             }
                             //console.log("Scraping: "+data.children().first().html());
@@ -106,4 +107,8 @@ exports.scrape = function(art, cb) {
 
     });
 
+}
+
+function compare(a, b) {
+return a.title.localeCompare(b.title);
 }

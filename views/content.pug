@@ -5,16 +5,18 @@ block content
     h2= title
     p Mehrfachauswahl mit [STRG] 
   form(method='post', class='w3-container', enctype='application/json')
-    - console.log(data);
+    //- console.log(data);
 
     for thing in data
       if thing
         div(class='w3-half')
           h2= thing.title 
-          select(name=thing.title, class='w3-input', size='15' multiple)
+          select(id=thing.title, name=thing.title, class='w3-input', size='15' multiple)
             each val in thing.inner
               option(value=val.title)= val.title
+
     br
     input(type='submit',class='w3-block w3-button w3-xlarge w3-green', value='Druckansicht')
+    script $(function(){ $('select').selectize({sortField: "text"})});
   footer(class='w3-container w3-teal')
     h5 by ragon000

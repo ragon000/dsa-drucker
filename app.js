@@ -12,10 +12,13 @@ app.use(compression());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.use(basicAuth( { authorizer: myAuthorizer, challenge: true } ));
- 
+app.use(basicAuth({
+    authorizer: myAuthorizer,
+    challenge: true
+}));
+
 function myAuthorizer(username, password) {
-    if(username.includes("asdf")) return true;
+    if (username.includes("asdf")) return true;
 }
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
